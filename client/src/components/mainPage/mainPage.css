@@ -1,0 +1,160 @@
+.mainPage {
+  max-width: 100vw;
+  background: #ffffff;
+}
+
+.mainPage .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* background: #fdfde1; */
+  background: rgba(247, 217, 170, 1);
+}
+
+.mainPage .link {
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  color: #fff;
+  border-style: solid;
+  border-color: #fff;
+  border-width: 0.05rem;
+  text-decoration: none;
+  background: hsl(50, 70%, 55%);
+  padding: 0.6em 0.5em;
+  transition: 250ms;
+}
+
+.mainPage .link:hover {
+  color: hsl(50, 70%, 55%);
+  background: #fff;
+  border-color: hsl(50, 70%, 55%);
+}
+.mainPage .filtersContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainPage .search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  padding-left: 5px;
+  margin-bottom: 20px;
+  border-radius: 40px;
+  width: 300px;
+  height: 40px;
+  position: relative;
+}
+.mainPage .inputSearch {
+  width: 85%;
+  float: left;
+  outline: none;
+  color: #000;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.mainPage .btnSearch {
+  cursor: pointer;
+  border: none;
+  background: local;
+  padding: 0;
+  margin: 0;
+  float: right;
+}
+.mainPage .inputSearch::placeholder {
+  color: grey;
+}
+.mainPage .selectContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  background-color: #fff;
+  height: 30px;
+  position: relative;
+  border-radius: 20px;
+}
+.mainPage .select {
+  float: left;
+  cursor: pointer;
+  padding-left: 4px;
+  width: 95%;
+  outline: none;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mainPage .deselectSelect {
+  color: rgb(255, 143, 143);
+  font-weight: bold;
+}
+
+.mainPage .title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: hsl(50, 60%, 30%);
+  text-align: center;
+}
+.mainPage .cardsAndOrder {
+  max-width: 100%;
+  margin: 10px;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  column-gap: 100px;
+}
+
+.mainPage .order {
+  max-height: 400px;
+  width: 100%;
+  border: #000 solid 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 5px;
+  background: #fdfde1;
+}
+
+.mainPage .orderTitle {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.mainPage .orderContainer {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 200px;
+  grid-template-rows: repeat(5, 50px);
+  font-size: 1.2rem;
+  font-weight: 550;
+}
+.mainPage .checkbox {
+  display: grid;
+  grid-template-columns: auto 2px;
+}
+
+.mainPage .dogBreedsShowing {
+  grid-column: 2;
+  display: grid;
+  grid-auto-rows: minmax(400px, auto);
+  row-gap: 60px;
+}
+.mainPage .paginated {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(247, 217, 170, 1);
+}
+.mainPage .notFound {
+  font-size: 1.2rem;
+  font-weight: bold;
+}

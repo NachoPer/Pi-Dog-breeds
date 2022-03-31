@@ -1,0 +1,129 @@
+.detail {
+  max-width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: rgba(247, 217, 170, 1);
+}
+
+.detail .header {
+  max-width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fffffa;
+}
+.detail .headerTitle {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: hsl(50, 60%, 30%);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.detail .title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: hsl(0, 95%, 30%);
+  text-align: center;
+}
+.detail .infoContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 50px;
+}
+
+.detail .temperament {
+  grid-column: 1;
+  grid-row: 1;
+}
+.detail .temperamentTitle {
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+.detail .temperamentUl {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 15px;
+  row-gap: 20px;
+  list-style: none;
+}
+.detail .temperamentLi {
+  display: grid;
+  grid-template-columns: auto auto;
+  height: fit-content;
+  font-style: italic;
+  background: #fdfde1;
+  color: #00004f;
+  font-size: 1.3rem;
+  padding: 3px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+.detail .temperamentLi::before {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-image: url("../../perroUl.png");
+  background-color: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.detail .characteristicsContainer {
+  grid-column: 2;
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 10% 90%;
+  column-gap: 5px;
+  row-gap: 15px;
+}
+.detail .characteristicsTitle {
+  margin-left: -60px;
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: bold;
+  grid-column: span 3;
+  grid-row: 1;
+}
+.detail .numberContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.detail .characteristic {
+  font-size: 1.4rem;
+  text-align: center;
+  font-weight: 550;
+  background: #fdfde1;
+}
+.detail .number {
+  text-align: center;
+  font-size: 1.3rem;
+  border-radius: 20px;
+  color: #00004f;
+  background: #fdfde1;
+}
+.detail .imgContainer {
+  grid-column: 1/-1;
+  grid-row: 2;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+.detail .img {
+  aspect-ratio: 16/9;
+  object-fit: contain;
+  object-position: center;
+  max-height: 500px;
+  border-radius: 5px;
+}

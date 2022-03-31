@@ -1,0 +1,28 @@
+.containerPaginated {
+  max-width: 100vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+}
+
+.containerPaginated .btn {
+  background: #fff;
+  border-radius: 40px;
+  color: #221515;
+  font-size: 0.9rem;
+  font-weight: 550;
+  text-align: center;
+  height: 35px;
+  width: 35px;
+  transition: 200ms;
+  cursor: pointer;
+}
+.containerPaginated .btn + .btn {
+  margin-left: 5px;
+}
+
+.containerPaginated .btn:hover {
+  background: rgb(145, 4, 4);
+}
