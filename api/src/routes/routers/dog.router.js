@@ -1,17 +1,21 @@
 const { Router } = require("express");
 const dogRouter = Router();
 const { Dog, Temperament } = require("../../db");
+
 dogRouter.post("/", async (req, res) => {
+  const {
+    dog_breed,
+    weight_max,
+    weight_min,
+    height_max,
+    height_min,
+    temperament,
+    life_span,
+  } = req.body;
+  const allTemperaments = temperament?.map((t) => {
+    return t.toLowerCase().trim();
+  });
   try {
-    const {
-      dog_breed,
-      weight_max,
-      weight_min,
-      height_max,
-      height_min,
-      temperament,
-      life_span,
-    } = req.body;
     const dogBreed = await Dog.create({
       dog_breed,
       weight_max,
@@ -20,9 +24,7 @@ dogRouter.post("/", async (req, res) => {
       height_min,
       life_span,
     });
-    const allTemperaments = temperament?.map((t) => {
-      return t.toLowerCase().trim();
-    });
+
     const temperamentsFound = await Temperament.findAll({
       where: {
         name: allTemperaments,

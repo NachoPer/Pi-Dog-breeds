@@ -1,6 +1,6 @@
 import "./Paginated.css"
 
-export default function Paginated ({dogsShowing,paginated,cardsPerPage,next}){
+export default function Paginated ({dogsShowing,paginated,cardsPerPage}){
     const pageNumbers = []
     for (let i = 1; i < Math.ceil(dogsShowing/cardsPerPage); i++) {
         pageNumbers.push(i)

@@ -60,11 +60,13 @@ export default function MainPage () {
     return dispatch(filterAlphabetically())
   }
   setInput("");setSelected("None")
-    if(e.target.name === "created")  { 
+    if(e.target.name === "created")  {
+      setCurrentPage(1)
       setCheckbox({...checkbox,existing: false, created: true})
       return dispatch(filterByCreated(e.target.name))
   }
-    if(e.target.name === "existing") {  
+    if(e.target.name === "existing") { 
+      setCurrentPage(1)
       setCheckbox({...checkbox,created: false, existing: true})
       return dispatch(filterByCreated(e.target.name))
     }

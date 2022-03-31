@@ -11,12 +11,12 @@ export const FILTER_BY_CREATED = "FITLER_BY_CREATED";
 export const FILTER_ALPHABETICALLY = "FILTER_ALPHABETICALLY";
 
 export const getAllDogBreeds = () => {
-  return async (dispatch) => {
-    const allDogBreeds = await axios.get("http://localhost:3001/dogs/");
-    return dispatch({
-      type: GET_ALL_DOG_BREEDS,
-      payload: allDogBreeds.data,
-    });
+  return (dispatch) => {
+    axios
+      .get("http://localhost:3001/dogs/")
+      .then(({ data }) =>
+        dispatch({ type: GET_ALL_DOG_BREEDS, payload: data })
+      );
   };
 };
 

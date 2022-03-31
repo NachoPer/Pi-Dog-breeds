@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { Router, response } = require("express");
+const { Router } = require("express");
 const dogsRouter = Router();
 const { Dog, Temperament } = require("../../db");
 const { API_KEY } = process.env;
@@ -18,6 +18,7 @@ dogsRouter.get("/", async (req, res) => {
         },
       });
     };
+
     const apiData = async () => {
       const apiInfo = await axios.get(
         "https://api.thedogapi.com/v1/breeds?api_key=" + API_KEY
@@ -27,7 +28,7 @@ dogsRouter.get("/", async (req, res) => {
           const weight_max = parseInt(weight.metric.split("-")[1]);
           const weight_min = parseInt(weight.metric.split("-")[0]);
           const temperaments =
-            typeof temperament === "string" &&
+            temperament &&
             temperament.split(",").map((t) => {
               return (
                 t.trim().charAt(0).toUpperCase() +
@@ -48,10 +49,12 @@ dogsRouter.get("/", async (req, res) => {
       const infoFiltered = info.filter((e) => e !== undefined);
       return infoFiltered;
     };
+
     const { name } = req.query;
     const getApiData = await apiData();
     const getDbData = await dbData();
     const getAllDog_breeds = getApiData.concat(getDbData);
+
     if (name) {
       const getDog_breed = getAllDog_breeds.filter(
         (dog_breed) =>
@@ -93,7 +96,7 @@ dogsRouter.get("/:id", async (req, res) => {
         const weight_max = parseInt(weight.metric.split("-")[1]);
         const weight_min = parseInt(weight.metric.split("-")[0]);
         const temperaments =
-          typeof temperament === "string" &&
+          temperament &&
           temperament.split(",").map((t) => {
             return (
               t.trim().charAt(0).toUpperCase() + t.toLowerCase().trim().slice(1)
@@ -127,66 +130,3 @@ dogsRouter.get("/:id", async (req, res) => {
 });
 
 module.exports = dogsRouter;
-// dogsRouter.get("/1/:id", (req, res) => {
-//   const { id } = req.params;
-//   const dbDataId = new Promise((resolve, reject) => {
-//     try {
-//       const dogs_breedsFound = () =>
-//         Dog.findAll({
-//           include: {
-//             model: Temperament,
-//             attributes: ["name"],
-//             through: {
-//               attributes: [],
-//             },
-//           },
-//         });
-//       resolve(dogs_breedsFound);
-//     } catch (error) {
-//       reject(console.log(error));
-//     }
-//   });
-//   const apiDataId = new Promise((resolve, reject) => {
-//     axios
-//       .get("https://api.thedogapi.com/v1/breeds?api_key=" + API_KEY)
-//       .then(({ data }) =>
-//         data.map(
-//           ({ weight, height, name, id, temperament, life_span, image }) => {
-//             const height_max = parseInt(height.metric.split("-")[1]);
-//             const height_min = parseInt(height.metric.split("-")[0]);
-//             const weight_max = parseInt(weight.metric.split("-")[1]);
-//             const weight_min = parseInt(weight.metric.split("-")[0]);
-//             const temperaments =
-//               typeof temperament === "string" &&
-//               temperament.split(",").map((t) => {
-//                 return (
-//                   t.trim().charAt(0).toUpperCase() +
-//                   t.toLowerCase().trim().slice(1)
-//                 );
-//               });
-//             return {
-//               id,
-//               dog_breed: name,
-//               image: image.url,
-//               weight_max: weight_max ? weight_max : weight_min + 1,
-//               weight_min: weight_min ? weight_min : weight_max - 1,
-//               height_max: height_max ? height_max : height_min + 1,
-//               height_min: height_min ? height_min : height_max - 1,
-//               temperament: temperaments || temperament,
-//               life_span,
-//             };
-//           }
-//         )
-//       )
-//       .then((data) => resolve(data))
-//       .catch((error) => reject(error));
-//   });
-//   Promise.all([apiDataId, dbDataId])
-//     .then(([apiDataId, dbDataId]) => apiDataId.concat(dbDataId))
-//     .then((allData) => allData.find((dog_breed) => dog_breed.id == id))
-//     .then((dogBreedFound) =>
-//       dogBreedFound
-//         ? res.send(dogBreedFound)
-//         : res.status(400).send("dog breed not found")
-//     );
-// });

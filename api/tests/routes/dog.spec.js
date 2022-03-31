@@ -22,7 +22,7 @@ describe("Dog route", () => {
   beforeEach(() => Dog.sync({ force: true }).then(() => Dog.create(dog)));
   describe("GET /dogs", () => {
     it("should get 200", () => agent.get("/dogs").expect(200));
-    it("should get 200", () =>
+    it("should get Ignacio", () =>
       agent
         .get("/dogs?name=Ignacio")
         .expect(200)

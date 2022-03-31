@@ -1,6 +1,5 @@
 export const validate = (form, showAll = false) => {
   let errors = {};
-
   const inputGreaterLowerAndNumber = (input, minNumber, maxNumber) => {
     return !(input >= minNumber && input <= maxNumber && !isNaN(input));
   };
@@ -68,5 +67,3 @@ export const validate = (form, showAll = false) => {
 
   return errors;
 };
-//   !/^([2-9]{1}[0-9]{1}|[1]{1}[1-9]{1}|[1]{1}[0]{1}[0-9]{1}|[1]{2}[0]{1})$/.test(
-// form.life_span
