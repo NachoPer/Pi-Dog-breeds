@@ -9,7 +9,7 @@ export default function DogBreedCard({dog_breed,temperament,weight_max,weight_mi
         Dog breed: {dog_breed}
       </div>
       <div className="cardImage">
-        <img alt="The dog breed dont have image" src={img}/>
+        <img alt="Dont has" src={img}/>
       </div>
       <div>
         <div className="temperamentTitle">

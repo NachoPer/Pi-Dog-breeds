@@ -46,7 +46,7 @@ export default function MainPage () {
   )
 
   const handleCheckbox = (e => {
-    if(!e.target.checked) return setCheckbox({...checkbox,[e.target.name]: false})
+    // if(!e.target.checked) return setCheckbox({...checkbox,[e.target.name]: false})
     if(e.target.name === "highestMaxWeight" && e.target.checked) {
       setCheckbox({...checkbox,lowestMaxWeight: false,alphabetically: false, highestMaxWeight: true})
       return dispatch(filterByWeight(e.target.name))

@@ -42,7 +42,7 @@ const rootReducer = (state = initialState, action) => {
           if (!isCreated) {
             return dog_breed.temperament?.includes(action.payload);
           }
-          const found = dog_breed.find(
+          const found = dog_breed.temperaments.find(
             (temperament) => temperament.name === action.payload
           );
           return found ? true : false;
