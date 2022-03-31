@@ -46,7 +46,6 @@ export default function MainPage () {
   )
 
   const handleCheckbox = (e => {
-    // if(!e.target.checked) return setCheckbox({...checkbox,[e.target.name]: false})
     if(e.target.name === "highestMaxWeight" && e.target.checked) {
       setCheckbox({...checkbox,lowestMaxWeight: false,alphabetically: false, highestMaxWeight: true})
       return dispatch(filterByWeight(e.target.name))
@@ -59,17 +58,10 @@ export default function MainPage () {
     setCheckbox({...checkbox,lowestMaxWeight: false,highestMaxWeight: false,alphabetically: true})
     return dispatch(filterAlphabetically())
   }
-  setInput("");setSelected("None")
-    if(e.target.name === "created")  {
-      setCurrentPage(1)
-      setCheckbox({...checkbox,existing: false, created: true})
-      return dispatch(filterByCreated(e.target.name))
-  }
-    if(e.target.name === "existing") { 
-      setCurrentPage(1)
-      setCheckbox({...checkbox,created: false, existing: true})
-      return dispatch(filterByCreated(e.target.name))
-    }
+  setInput("");setSelected("None");
+  setCurrentPage(1);
+  setCheckbox({...checkboxFalse,[e.target.name]:true});
+  return dispatch(filterByCreated(e.target.name))
   })
 
 
