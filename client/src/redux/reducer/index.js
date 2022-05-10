@@ -8,7 +8,7 @@ import {
   GET_ALL_TEMPERAMENTS,
   GET_DOG_BREEDS_FILTERED,
   GET_DOG_BREED_BY_ID,
-} from "../actions";
+} from '../actions/actions';
 
 const initialState = {
   allDogBreeds: [],
@@ -51,7 +51,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         dogsShowing:
-          action.payload !== "None"
+          action.payload !== 'None'
             ? dogBreedsFilteredByTemperament
             : state.allDogBreeds,
       };
@@ -67,7 +67,7 @@ const rootReducer = (state = initialState, action) => {
       };
     case FILTER_BY_WEIGHT:
       const dogsShowingFilterByWeight =
-        action.payload === "lowestMaxWeight"
+        action.payload === 'lowestMaxWeight'
           ? state.dogsShowing.sort((a, b) => a.weight_max - b.weight_max)
           : state.dogsShowing.sort((a, b) => b.weight_max - a.weight_max);
       return {
@@ -76,7 +76,7 @@ const rootReducer = (state = initialState, action) => {
       };
     case FILTER_BY_CREATED:
       const dogBreedsShowingFilterByCreated = () => {
-        if (action.payload === "created")
+        if (action.payload === 'created')
           return state.allDogBreeds.filter(
             (dog_breed) => dog_breed.temperaments?.length
           );
