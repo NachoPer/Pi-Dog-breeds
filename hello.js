@@ -1,3 +1,0 @@
-//comentario
-
-const toni = "toni";
